@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--    Name: Brian Plewinski
+        Assignment: CS366 Assignment #8
+        Created 11/03/2022
+        Description: Flask Project    -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Conference,Workshop,Health,Fitness">
+    <meta name="description" content="Base page">
+    <meta name="author" content="Brian Plewinski">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial scale= 1.0">
+    <title>{% block title %} Home {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/webdefault.css') }}">
+</head>
+<body>
+<header>
+    {% include 'nav.html' %}
+     <ul>
+    <li><a href="{{ url_for('login') }}">login</a></li>
+        </ul>
+    {% block main %}
+
+    {% endblock %}
+</header>
+</body>
+<footer>
+    <h3><br> Contact The Author</h3>
+    <address>
+        <small>
+            702 Windmill Place<br>
+            Highlands Ranch, CO<br>
+            80126,USA<br>
+            <a href="mailto:bplewinski@regis.edu">bplewinski@regis.edu</a>
+            <br>
+            <a href="tel:+13606704639">(360) 670-4639</a>
+        </small>
+    </address>
+    <p>
+        <small>
+            <i>
+                Disclaimer: <br>While this web site was created to satisfy the requirement of <br>
+                building a web site for an academic course at Regis University, the <br>
+                views and opinions expressed on this web site are solely those of <br>
+                the original author and do not necessarily represent the views and <br>
+                opinions of Regis University.
+            </i>
+        </small>
+    </p>
+</footer>
+</html>

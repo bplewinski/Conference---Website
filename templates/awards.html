@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+    Member Awards
+{% endblock %}
+{% block main %}
+    <body onload="pollVotes()">
+    <h1><u>{{ title }}</u></h1>
+    <table class="awards-table">
+        {# loop for row headers #}
+        {% for row in headers %}
+            <th class="table-title">{{ row }}</th>
+        {% endfor %}
+        {# loop for contents in table #}
+        {% for item in winners %}
+            <tr>
+                {# displays correct image in left column to match prize #}
+                {% if item.prize == "Prize #1" %}
+                    <td class="image">
+                        <img src="{{ url_for('static', filename='images/award-1.jpg') }}"
+                             alt="award1" width="120" height="120"></td>
+                {% elif item.prize == "Prize #2" %}
+                    <td class="image">
+                        <img src="{{ url_for('static', filename='images/award-2.jpg') }}"
+                             alt="award1" width="120" height="120"></td>
+                {% else %}
+                    <td class="image">
+                        <img src="{{ url_for('static', filename='images/award-3.jpg') }}"
+                             alt="award1" width="120" height="120"></td>
+                {% endif %}
+                <td class="cell-align">{{ item.prize }}</td>
+                <td class="cell-align">{{ item.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {# enables display of votes #}
+    <div class="form-style">
+        <form onsubmit="return submitPoll()" method="POST">
+            <fieldset>
+                <p>Please Vote Below!</p>
+                <label for="Brian">
+                    <input type="radio" id="Brian" name="poll" value="Brian">
+                    Brian <span id="group1"></span><br><br>
+                </label>
+                <label for="Peiyin">
+                    <input type="radio" id="Peiyin" name="poll" value="Peiyin">
+                    Peiyin <span id="group2"></span><br><br>
+                </label>
+                <label for="Nacho">
+                    <input type="radio" id="Nacho" name="poll" value="Nacho">
+                    Nacho <span id="group3"></span><br><br>
+                </label>
+                <br>
+                <label><input type="submit" value="Submit" /></label>
+            </fieldset>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/jsPoll.js') }}"></script>
+        </form>
+    </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+{% block main %}
+    <h1>{{ title }}</h1>
+    <p>Greeting! If you are attending this conference then you are seeking
+        an improvement in health and fitness, and that is what will be delivered. <br>There will be
+        several workshops which include topics such as, diet, nutrition, exercise, well-being,
+        and more! <br>Navigate through the site as you please, and it is suggested to do
+        one workshop at a time.</p>
+    <p>Date of Conference: 9/19/2022</p>
+    <img src="{{ url_for('static', filename='images/index-img.jpg') }}"
+         alt="Home image" width="400" height="300">
+{% endblock %}

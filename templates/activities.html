@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    Activities
+{% endblock %}
+{% block main %}
+    <h1>{{ title }}</h1>
+    <ul>
+    {# lopp displays all activities in list #}
+        {% for activity in list %}
+            <li>{{ activity }}</li>
+        {% endfor %}
+    </ul>
+    <p>Below is a video for one out of 3 activities to perform outside
+        the conference. <br>A kettle-bell is a form of weight lifting and can
+        even be used for cardiovascular
+        training! <br> It all depends on how you want to train!</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ibLf8JAxZt8"
+            title="YouTube video player" allow="accelerometer;
+           autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+{% endblock %}

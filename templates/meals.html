@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+    Meal's
+{% endblock %}
+{% block main %}
+    <h1><u>{{ title }}</u></h1>
+    <div class="horizontal">
+        {# loop to display correct image with menu #}
+        {% for choice in options %}
+            <div class="column">
+                {% if choice == "Menu 1" %}
+                    <img src="{{ url_for('static', filename='images/menu-1.jpg') }}"
+                         alt="Home image" width="200" height="200">
+                    <h3>{{ choice }}</h3>
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/menu-2.jpg') }}"
+                         alt="Home image" width="200" height="200">
+                    <h3>{{ choice }}</h3>
+                {% endif %}
+                {# loop displays meals for each menu and time of day #}
+                {% for meals in menu %}
+                    <p>{{ meals.daytime }} <br> {{ meals.foods }}
+                        {% if choice == "Menu 1" %}
+                            {{ meals.foods1 }}
+                        {% else %}
+                            {{ meals.foods2 }}
+                        {% endif %}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <p>Full Meal Package: $250.00 (includes Dinner Day 2) <br> Dinner Day 2: $75.00</p>
+    </div>
+{% endblock %}
